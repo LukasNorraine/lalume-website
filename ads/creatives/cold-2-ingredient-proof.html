@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: #F8F4EF;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .header {
+    padding: 52px 72px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2D4A40;
+    letter-spacing: 0.04em;
+  }
+  .logo span { color: #B8924A; }
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B8924A;
+  }
+
+  /* Comparison */
+  .compare {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 48px 72px 0;
+  }
+
+  .side {
+    display: flex;
+    flex-direction: column;
+    padding: 44px 44px;
+    border-radius: 20px;
+    position: relative;
+  }
+  .side.them {
+    background: #EDEDE8;
+    margin-right: 12px;
+    border: 1.5px solid #D8D4CE;
+  }
+  .side.us {
+    background: #2D4A40;
+    margin-left: 12px;
+  }
+
+  .side-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .them .side-label { color: #9A9590; }
+  .us .side-label { color: rgba(184,146,74,0.9); }
+
+  .side-product {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .them .side-product { color: #4A4A46; }
+  .us .side-product { color: #fff; }
+
+  .side-price {
+    font-size: 14px;
+    margin-bottom: 36px;
+  }
+  .them .side-price { color: #9A9590; text-decoration: line-through; }
+  .us .side-price { color: rgba(255,255,255,0.5); }
+
+  /* The big dosage number */
+  .dose-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .dose-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .them .dose-label { color: #B0ADA7; }
+  .us .dose-label { color: rgba(184,146,74,0.7); }
+
+  .dose-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 0.9;
+    margin-bottom: 12px;
+  }
+  .them .dose-number {
+    font-size: 100px;
+    color: #C8C5C0;
+  }
+  .us .dose-number {
+    font-size: 120px;
+    color: #fff;
+  }
+
+  .dose-unit {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .them .dose-unit { color: #B0ADA7; }
+  .us .dose-unit { color: rgba(255,255,255,0.6); }
+
+  .dose-callout {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+  .them .dose-callout {
+    color: #9A9590;
+  }
+  .us .dose-callout {
+    color: rgba(255,255,255,0.55);
+  }
+  .us .dose-callout strong { color: rgba(255,255,255,0.85); }
+
+  .badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #B8924A;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 32px 72px 52px;
+    text-align: center;
+  }
+  .footer-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 500;
+    color: #2D4A40;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .footer-headline em {
+    font-style: italic;
+    color: #B8924A;
+  }
+  .footer-sub {
+    font-size: 14px;
+    color: #7A7570;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">La<span>Lume</span></div>
+    <div class="label">The Dose That Works</div>
+  </div>
+
+  <div class="compare">
+    <div class="side them">
+      <div class="side-label">Typical luxury serum</div>
+      <div class="side-product">"Advanced Niacinamide"</div>
+      <div class="side-price">$150–$200 CAD</div>
+      <div class="dose-container">
+        <div class="dose-label">Niacinamide</div>
+        <div class="dose-number">2<span style="font-size:52px;">%</span></div>
+        <div class="dose-callout">Below the threshold clinical research identifies as effective for pore reduction.</div>
+      </div>
+    </div>
+
+    <div class="side us">
+      <div class="badge">Clinical Dose</div>
+      <div class="side-label">LaLume</div>
+      <div class="side-product">Niacinamide Clarity Serum</div>
+      <div class="side-price">$28 CAD · Free Shipping 🇨🇦</div>
+      <div class="dose-container">
+        <div class="dose-label">Niacinamide</div>
+        <div class="dose-number">10<span style="font-size:60px;">%</span></div>
+        <div class="dose-callout"><strong>The concentration shown in peer-reviewed research</strong> to visibly reduce pores, control sebum, and even skin tone.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-headline">The dose that <em>actually works.</em><br>At a price that doesn't require a second thought.</div>
+    <div class="footer-sub">30-day money-back guarantee &nbsp;·&nbsp; Full ingredient transparency &nbsp;·&nbsp; lalume.ca</div>
+  </div>
+</body>
+</html>

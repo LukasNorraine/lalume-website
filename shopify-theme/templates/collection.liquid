@@ -1,0 +1,116 @@
+<!-- ── COLLECTION HERO ────────────────────────────────────── -->
+<div class="collections-hero">
+  <div class="container">
+    <div class="section-label reveal" style="justify-content:center;">LaLume Skincare</div>
+    <h1 class="collections-heading reveal">
+      Skincare built on<br><em>evidence, not hype.</em>
+    </h1>
+    <p class="collections-subtext reveal stagger-1">Every product has a published reason for existing. If an ingredient doesn't perform at clinical concentration, it doesn't go in.</p>
+    <div class="filter-bar reveal stagger-2">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="serum">Serums</button>
+      <button class="filter-btn" data-filter="eye-care">Eye Care</button>
+      <button class="filter-btn" data-filter="tools">Tools</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRODUCT GRID ───────────────────────────────────────── -->
+<section style="background:var(--bg);padding:clamp(60px,8vw,100px) 0;">
+  <div class="container">
+    <div class="collections-grid">
+      {%- for product in collections.all.products -%}
+      {%- assign h = product.handle -%}
+      {%- if h contains 'niacinamide' or h contains 'copper' or h contains 'peptide' -%}
+        {%- assign cat = 'serum' -%}
+      {%- elsif h contains 'gold' or h contains 'eye' -%}
+        {%- assign cat = 'eye-care' -%}
+      {%- elsif h contains 'led' or h contains 'mask' or h contains 'therapy' or h contains 'jade' or h contains 'roller' or h contains 'gua' -%}
+        {%- assign cat = 'tools' -%}
+      {%- else -%}
+        {%- assign cat = 'other' -%}
+      {%- endif -%}
+      <div class="product-card reveal" data-category="{{ cat }}">
+        <a href="{{ product.url }}">
+          <div class="product-card-visual">
+            {%- if product.featured_image -%}
+              <img src="{{ product.featured_image | image_url: width: 480 }}" alt="{{ product.title | escape }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+            {%- else -%}
+              {%- case product.handle -%}
+              {%- when 'niacinamide-10-zinc-serum' -%}
+                <div style="position:relative;">
+                  <div style="width:72px;height:150px;background:linear-gradient(160deg,#4E7A69 0%,#2D4A40 50%,#1a2e27 100%);border-radius:10px 10px 18px 18px;box-shadow:0 16px 48px rgba(45,74,64,0.35);"></div>
+                  <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:14px;height:40px;background:linear-gradient(180deg,#3A6052,#2D4A40);border-radius:7px 7px 0 0;"></div>
+                </div>
+              {%- when 'copper-peptide-renewal-serum' -%}
+                <div style="position:relative;">
+                  <div style="width:72px;height:150px;background:linear-gradient(160deg,#c4924a 0%,#8b5e2a 50%,#4a2e14 100%);border-radius:10px 10px 18px 18px;box-shadow:0 16px 48px rgba(139,94,42,0.35);"></div>
+                  <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:14px;height:40px;background:linear-gradient(180deg,#7a5228,#c4924a);border-radius:7px 7px 0 0;"></div>
+                </div>
+              {%- when '24k-gold-under-eye-patches' -%}
+                <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+                  <div style="display:flex;gap:12px;">
+                    <div style="width:55px;height:30px;background:linear-gradient(135deg,#d4a255,#b8924a);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;box-shadow:0 8px 24px rgba(184,146,74,0.4);"></div>
+                    <div style="width:55px;height:30px;background:linear-gradient(135deg,#d4a255,#b8924a);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;box-shadow:0 8px 24px rgba(184,146,74,0.4);"></div>
+                  </div>
+                  <div style="display:flex;gap:12px;">
+                    <div style="width:55px;height:30px;background:linear-gradient(135deg,#c9a96e,#a8823d);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;opacity:0.7;"></div>
+                    <div style="width:55px;height:30px;background:linear-gradient(135deg,#c9a96e,#a8823d);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;opacity:0.7;"></div>
+                  </div>
+                </div>
+              {%- when 'led-photon-therapy-mask' -%}
+                <div style="position:relative;width:140px;height:90px;">
+                  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e,#2d1b69,#1a2e27);border-radius:50% 50% 40% 40% / 60% 60% 50% 50%;border:3px solid rgba(255,50,50,0.3);box-shadow:0 0 30px rgba(255,50,50,0.25),0 0 20px rgba(50,50,255,0.15);"></div>
+                  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;grid-template-columns:repeat(5,1fr);gap:6px;width:80px;">
+                    {%- for i in (1..15) -%}<div style="width:7px;height:7px;border-radius:50%;background:{%- cycle '#ff3232','#3232ff','#ff3232' -%};opacity:0.8;"></div>{%- endfor -%}
+                  </div>
+                </div>
+              {%- when 'jade-facial-roller-gua-sha-set' -%}
+                <div style="display:flex;gap:20px;align-items:center;">
+                  <div style="width:28px;height:120px;background:linear-gradient(180deg,#5a9e7a,#3d7a58,#2d5a40);border-radius:14px;box-shadow:0 8px 24px rgba(61,122,88,0.4);"></div>
+                  <div style="width:55px;height:38px;background:linear-gradient(135deg,#5a9e7a,#3d7a58);border-radius:6px 6px 10px 10px;transform:rotate(-10deg);box-shadow:0 6px 20px rgba(61,122,88,0.35);"></div>
+                </div>
+              {%- else -%}
+                <div style="width:72px;height:140px;background:linear-gradient(160deg,var(--forest-3),var(--forest));border-radius:10px 10px 18px 18px;"></div>
+              {%- endcase -%}
+            {%- endif -%}
+            <span class="card-badge{% if product.tags contains 'bestseller' %} gold-badge{% endif %}">
+              {%- if product.tags contains 'bestseller' -%}Best Seller
+              {%- elsif product.tags contains 'new' -%}New
+              {%- else -%}{{ product.type }}{%- endif -%}
+            </span>
+          </div>
+        </a>
+        <div class="product-card-body">
+          <div class="card-category">{{ product.type }}</div>
+          <a href="{{ product.url }}"><div class="card-name">{{ product.title }}</div></a>
+          <p class="card-desc">{%- assign h = product.handle -%}{%- if h contains 'niacinamide' -%}20% niacinamide, four times the dose most brands use. Zinc PCA controls oil. Visible pore reduction in 4 weeks.{%- elsif h contains 'copper' or h contains 'peptide' -%}GHK-Cu at clinical concentration. Rebuilds collagen your skin stopped producing after 25. Firmer in 4 weeks.{%- elsif h contains 'gold' or h contains 'eye' -%}24K gold, hyaluronic acid, retinol, caffeine. One 20-minute session. Puffiness and dark circles you can actually see the difference in.{%- elsif h contains 'led' or h contains 'mask' or h contains 'therapy' -%}Red 630nm collagen, blue 415nm acne. Same wavelengths as a $150 clinic session, in 3 minutes at home.{%- elsif h contains 'jade' or h contains 'roller' or h contains 'gua' -%}Authentic jade roller and gua sha. Drains lymphatic fluid, de-puffs in 5 minutes, doubles serum absorption.{%- else -%}{{ product.description | strip_html | truncate: 100 }}{%- endif -%}</p>
+          <div class="card-footer">
+            <div class="card-price">{{ product.price | money }}<span>CAD</span></div>
+            <a href="{{ product.url }}" class="btn-card">
+              Shop Now
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      {%- else -%}
+      <div style="grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--text-muted);">
+        <p style="font-size:18px;margin-bottom:16px;">No products found in this collection.</p>
+        <a href="{{ routes.root_url }}" class="btn-outline">Back to Home</a>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var map = { 'serums': 'serum', 'eye-care': 'eye-care', 'tools': 'tools' };
+  var filter = map['{{ collection.handle }}'];
+  if (filter) {
+    var btn = document.querySelector('.filter-btn[data-filter="' + filter + '"]');
+    if (btn) btn.click();
+  }
+})();
+</script>

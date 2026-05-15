@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: #2D4A40;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Organic background blobs */
+  .blob1 {
+    position: absolute;
+    top: -180px;
+    right: -120px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(ellipse, rgba(184,146,74,0.12) 0%, transparent 70%);
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  }
+  .blob2 {
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%);
+    border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+  }
+
+  .inner {
+    position: relative;
+    z-index: 10;
+    padding: 72px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Top */
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.04em;
+  }
+  .logo span { color: #B8924A; }
+
+  /* Center */
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #B8924A;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: #B8924A;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 78px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 52px;
+  }
+  h1 em {
+    font-style: italic;
+    color: #B8924A;
+  }
+
+  .pain-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 52px;
+  }
+  .pain-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .pain-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgba(184,146,74,0.7);
+    padding-top: 3px;
+    min-width: 24px;
+  }
+  .pain-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+  .pain-text strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+
+  /* Bottom */
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cta-pill {
+    background: #B8924A;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .proof {
+    text-align: right;
+  }
+  .stars {
+    font-size: 20px;
+    color: #B8924A;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .proof-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+  }
+  .proof-text strong { color: rgba(255,255,255,0.75); }
+
+  /* Divider line */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 32px 0;
+  }
+</style>
+</head>
+<body>
+<div class="blob1"></div>
+<div class="blob2"></div>
+
+<div class="inner">
+  <div class="logo">La<span>Lume</span></div>
+
+  <div>
+    <div class="eyebrow">Sound familiar?</div>
+    <h1>Your routine<br>is full. Your<br>skin <em>still isn't</em><br>happy.</h1>
+
+    <div class="pain-list">
+      <div class="pain-row">
+        <div class="pain-num">01</div>
+        <div class="pain-text"><strong>Promises without proof.</strong> Most serums hide their concentrations — because they're barely effective.</div>
+      </div>
+      <div class="pain-row">
+        <div class="pain-num">02</div>
+        <div class="pain-text"><strong>Luxury markup, not luxury results.</strong> You're paying for the packaging, not the formula.</div>
+      </div>
+      <div class="pain-row">
+        <div class="pain-num">03</div>
+        <div class="pain-text"><strong>Canadian climate stress.</strong> Cold winters and hard water wreck your barrier — most brands don't formulate for it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="divider"></div>
+    <div class="bottom">
+      <div class="cta-pill">Meet the alternative</div>
+      <div class="proof">
+        <div class="stars">★★★★★</div>
+        <div class="proof-text"><strong>4.9</strong> · 2,847 reviews &nbsp;·&nbsp; 🇨🇦 10,000+ customers</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

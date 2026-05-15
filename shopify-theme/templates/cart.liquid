@@ -1,0 +1,96 @@
+<section class="cart-page-section">
+  <div class="container">
+    <div class="cart-page-header">
+      <h1 class="cart-page-title">Your Cart</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="cart-continue-link">← Continue Shopping</a>
+    </div>
+
+    {%- if cart.item_count > 0 -%}
+    <div class="cart-page-layout">
+
+      <div class="cart-page-items">
+        {%- for item in cart.items -%}
+        <div class="cart-page-item">
+          <div class="cart-page-item-img">
+            {%- if item.image -%}
+              <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" style="width:100%;height:100%;object-fit:cover;display:block;">
+            {%- else -%}
+              <div style="width:100%;height:100%;background:var(--forest-mist);display:flex;align-items:center;justify-content:center;font-size:28px;">🧴</div>
+            {%- endif -%}
+          </div>
+          <div class="cart-page-item-details">
+            <div class="cart-page-item-name">{{ item.product_title }}</div>
+            {%- unless item.variant_title == blank or item.variant_title == 'Default Title' -%}
+              <div class="cart-page-item-variant">{{ item.variant_title }}</div>
+            {%- endunless -%}
+            <div class="cart-page-item-price">{{ item.price | money }} CAD each</div>
+          </div>
+          <div class="cart-page-item-qty">
+            <form action="{{ routes.cart_change_url }}" method="post">
+              <input type="hidden" name="line" value="{{ forloop.index }}">
+              <div class="qty-control">
+                <button type="submit" name="quantity" value="{{ item.quantity | minus: 1 }}" class="qty-btn">&#8722;</button>
+                <span class="qty-num">{{ item.quantity }}</span>
+                <button type="submit" name="quantity" value="{{ item.quantity | plus: 1 }}" class="qty-btn">+</button>
+              </div>
+            </form>
+            <form action="{{ routes.cart_change_url }}" method="post" style="margin-top:10px;text-align:center;">
+              <input type="hidden" name="line" value="{{ forloop.index }}">
+              <input type="hidden" name="quantity" value="0">
+              <button type="submit" class="cart-remove-btn">Remove</button>
+            </form>
+          </div>
+          <div class="cart-page-item-total">{{ item.line_price | money }} CAD</div>
+        </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="cart-page-summary">
+        <div class="cart-summary-box">
+          <h2 class="cart-summary-title">Order Summary</h2>
+          <div class="cart-summary-row">
+            <span>Subtotal ({{ cart.item_count }} {%- if cart.item_count == 1 -%}&nbsp;item{%- else -%}&nbsp;items{%- endif -%})</span>
+            <span>{{ cart.total_price | money }} CAD</span>
+          </div>
+          <div class="cart-summary-row">
+            <span>Shipping</span>
+            <span style="color:var(--forest);font-weight:600;">Free</span>
+          </div>
+          <hr class="cart-summary-divider">
+          <div class="cart-summary-row cart-summary-total">
+            <span>Total</span>
+            <span>{{ cart.total_price | money }} CAD</span>
+          </div>
+          <a href="/checkout" class="btn-checkout-full">Proceed to Checkout &rarr;</a>
+          <div class="cart-summary-guarantee">
+            <span>&#128737;</span>
+            <span>30-day money-back guarantee &middot; Free shipping CA &amp; US</span>
+          </div>
+          <div class="cart-payment-row">
+            <div class="cart-payment-label">🔒 Secure checkout</div>
+            <div class="cart-payment-icons">
+              <span class="pay-badge">VISA</span>
+              <span class="pay-badge">Mastercard</span>
+              <span class="pay-badge">AMEX</span>
+              <span class="pay-badge">Apple Pay</span>
+              <span class="pay-badge">Google Pay</span>
+              <span class="pay-badge">Shop Pay</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    {%- else -%}
+    <div class="cart-empty-state">
+      <div class="cart-empty-icon">&#128717;</div>
+      <h2 class="cart-empty-title">Your cart is empty</h2>
+      <p class="cart-empty-desc">Looks like you haven't added anything yet.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn-primary" style="display:inline-flex;margin-top:8px;">
+        Shop All Products
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+    {%- endif -%}
+  </div>
+</section>

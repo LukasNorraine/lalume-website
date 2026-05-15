@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: #1A2E28;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Atmospheric background */
+  .bg-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 20%, rgba(45,74,64,0.8) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(184,146,74,0.07) 0%, transparent 60%);
+  }
+
+  /* Snowflake dots */
+  .flakes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .flake {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .inner {
+    position: relative;
+    z-index: 10;
+    padding: 72px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top bar */
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: auto;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.04em;
+  }
+  .logo span { color: #B8924A; }
+
+  .ca-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 20px;
+    border-radius: 999px;
+  }
+  .ca-flag { font-size: 20px; }
+  .ca-text {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* Center content */
+  .center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B8924A;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 500;
+    line-height: 1.05;
+    color: #fff;
+    letter-spacing: -0.025em;
+    margin-bottom: 48px;
+  }
+  h1 em {
+    font-style: italic;
+    color: #B8924A;
+  }
+
+  /* Climate stats grid */
+  .climate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 52px;
+  }
+  .climate-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px 20px;
+  }
+  .climate-icon { font-size: 28px; margin-bottom: 10px; }
+  .climate-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 6px;
+  }
+  .climate-impact {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  /* Bottom */
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cta-pill {
+    background: #B8924A;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .bottom-tagline {
+    font-size: 15px;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+    line-height: 1.5;
+  }
+  .bottom-tagline strong {
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<div class="flakes">
+  <!-- Decorative dots simulating atmosphere -->
+  <div class="flake" style="width:3px;height:3px;top:12%;left:15%;"></div>
+  <div class="flake" style="width:2px;height:2px;top:28%;left:72%;"></div>
+  <div class="flake" style="width:4px;height:4px;top:44%;left:88%;"></div>
+  <div class="flake" style="width:2px;height:2px;top:66%;left:8%;"></div>
+  <div class="flake" style="width:3px;height:3px;top:78%;left:55%;"></div>
+  <div class="flake" style="width:2px;height:2px;top:90%;left:34%;"></div>
+  <div class="flake" style="width:5px;height:5px;top:20%;left:45%;opacity:0.07;"></div>
+  <div class="flake" style="width:6px;height:6px;top:55%;left:22%;opacity:0.05;"></div>
+</div>
+
+<div class="inner">
+  <div class="top">
+    <div class="logo">La<span>Lume</span></div>
+    <div class="ca-badge">
+      <span class="ca-flag">🇨🇦</span>
+      <span class="ca-text">Made for Canadian Skin</span>
+    </div>
+  </div>
+
+  <div class="center">
+    <div class="eyebrow">British Columbia, Canada</div>
+    <h1>Most brands<br>don't test for<br><em>our climate.</em><br>We built for it.</h1>
+
+    <div class="climate-grid">
+      <div class="climate-item">
+        <div class="climate-icon">❄️</div>
+        <div class="climate-label">Cold Winters</div>
+        <div class="climate-impact">Strip your barrier faster than any ingredient can repair it</div>
+      </div>
+      <div class="climate-item">
+        <div class="climate-icon">💧</div>
+        <div class="climate-label">Hard Water</div>
+        <div class="climate-impact">Disrupts pH and leaves mineral deposits that block absorption</div>
+      </div>
+      <div class="climate-item">
+        <div class="climate-icon">🌡️</div>
+        <div class="climate-label">Seasonal Swing</div>
+        <div class="climate-impact">Humidity shifts between seasons stress your microbiome</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="cta-pill">Shop Canadian Formulas</div>
+    <div class="bottom-tagline">
+      <strong>Clean. Clinical. Honest.</strong><br>
+      Free shipping across Canada · lalume.ca
+    </div>
+  </div>
+</div>
+</body>
+</html>

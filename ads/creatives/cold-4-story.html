@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    background: #F8F4EF;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Three story "frames" stacked */
+  .frame {
+    width: 1080px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Frame 1: Hook - dark forest */
+  .frame-1 {
+    background: #2D4A40;
+    height: 680px;
+  }
+  .f1-glow {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(184,146,74,0.2) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+  .frame-1 .inner {
+    padding: 80px 88px;
+    position: relative;
+    z-index: 2;
+  }
+  .psa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #B8924A;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 999px;
+    margin-bottom: 40px;
+  }
+  .f1-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 86px;
+    font-weight: 700;
+    line-height: 1.0;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+  .f1-headline em {
+    font-style: italic;
+    color: #B8924A;
+  }
+  .f1-sub {
+    font-size: 20px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .swipe-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .swipe-line {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* Divider */
+  .divider {
+    width: 100%;
+    height: 6px;
+    background: #B8924A;
+  }
+
+  /* Frame 2: Problem facts */
+  .frame-2 {
+    background: #fff;
+    height: 640px;
+  }
+  .frame-2 .inner {
+    padding: 72px 88px;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .f2-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #B8924A;
+    margin-bottom: 32px;
+  }
+  .f2-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: #1A2A24;
+    letter-spacing: -0.015em;
+    margin-bottom: 44px;
+  }
+  .f2-headline em { font-style: italic; color: #2D4A40; }
+  .fact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .fact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px 24px;
+    background: #F8F4EF;
+    border-radius: 14px;
+    border-left: 3px solid #B8924A;
+  }
+  .fact-icon { font-size: 22px; flex-shrink: 0; }
+  .fact-text { font-size: 17px; color: #4A4A46; line-height: 1.5; }
+  .fact-text strong { color: #1A2A24; }
+
+  /* Frame 3: Solution + CTA */
+  .frame-3 {
+    background: #2D4A40;
+    height: 600px;
+  }
+  .frame-3 .inner {
+    padding: 72px 88px;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .f3-glow {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(184,146,74,0.12) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+  .f3-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(184,146,74,0.8);
+  }
+  .f3-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 66px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin: 24px 0;
+  }
+  .f3-headline em { font-style: italic; color: #B8924A; }
+  .proof-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .proof-chip {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.04em;
+  }
+  .logo span { color: #B8924A; }
+  .cta-btn {
+    background: #B8924A;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 999px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Frame 1: Hook -->
+<div class="frame frame-1">
+  <div class="f1-glow"></div>
+  <div class="inner">
+    <div class="psa-badge">📢 PSA for Canadians</div>
+    <div class="f1-headline">Your skincare<br>wasn't made<br>for <em>our</em> climate.</div>
+    <div class="f1-sub">Most global brands don't test for Canadian winters, hard water, or seasonal barrier stress. We do.</div>
+  </div>
+  <div class="swipe-hint">
+    <div class="swipe-line"></div>
+    Keep reading
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Frame 2: Problem -->
+<div class="frame frame-2">
+  <div class="inner">
+    <div class="f2-label">The Problem</div>
+    <div class="f2-headline">Three things<br>wrecking <em>Canadian skin</em><br>that most brands ignore.</div>
+    <div class="fact-list">
+      <div class="fact-row">
+        <span class="fact-icon">❄️</span>
+        <span class="fact-text"><strong>Cold winters</strong> drive transepidermal water loss — your barrier cracks before actives can help.</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-icon">💧</span>
+        <span class="fact-text"><strong>Hard water</strong> from Canadian tap deposits calcium that disrupts your skin's pH and blocks absorption.</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-icon">🌡️</span>
+        <span class="fact-text"><strong>Seasonal humidity swings</strong> from -30°C winters to humid summers stress your microbiome constantly.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Frame 3: Solution + CTA -->
+<div class="frame frame-3">
+  <div class="f3-glow"></div>
+  <div class="inner">
+    <div class="f3-label">The Solution</div>
+    <div class="f3-headline">Formulated<br>for <em>exactly</em><br>this.</div>
+    <div>
+      <div class="proof-row">
+        <div class="proof-chip">★ 4.9 · 2,847 reviews</div>
+        <div class="proof-chip">🇨🇦 10,000+ Canadians</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-chip">30-Day Guarantee</div>
+        <div class="proof-chip">Free Shipping CA & US</div>
+      </div>
+    </div>
+    <div class="logo-area">
+      <div class="logo">La<span>Lume</span></div>
+      <div class="cta-btn">Shop Now →</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "lalume-ads",
+  "version": "1.0.0",
+  "description": "LaLume Meta Ads automation — creative export and campaign setup",
+  "scripts": {
+    "generate": "node generate-creatives.js",
+    "campaign": "node meta-campaign-setup.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "facebook-nodejs-business-sdk": "^19.0.0",
+    "dotenv": "^16.0.0"
+  }
+}

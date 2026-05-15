@@ -1,0 +1,13 @@
+{
+  "general": {
+    "meta_fields": {
+      "title_tag": "{{ page_title }} | {{ shop.name }}",
+      "description_tag": "{{ page_description }}"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "Your Cart"
+    }
+  }
+}

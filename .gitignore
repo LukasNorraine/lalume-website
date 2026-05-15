@@ -1,0 +1,27 @@
+# Claude Code session data (private — not for version control)
+.claude/
+
+# Ruflo / claude-flow internal state
+.claude-flow/
+
+# Large binaries
+*.zip
+*.tar.gz
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Stray files
+{,
+{,-

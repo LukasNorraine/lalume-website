@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {%- if page_title == blank -%}{{ shop.name }}{%- else -%}{{ page_title }} | {{ shop.name }}{%- endif -%}
+  </title>
+  <meta name="description" content="{{ page_description | escape }}">
+  {{ content_for_header }}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+
+<div class="progress-bar"></div>
+
+<div style="background:var(--forest);color:rgba(255,255,255,0.8);text-align:center;padding:9px var(--pad-x);font-size:12.5px;letter-spacing:0.06em;">
+  ✦ Free shipping to <strong style="color:#fff;">Canada & US</strong> &nbsp;·&nbsp; 30-Day Money-Back Guarantee ✦
+</div>
+
+<nav class="nav{% unless template == 'index' %} scrolled{% endunless %}">
+  <div class="nav-inner">
+    <a href="{{ routes.root_url }}" class="nav-logo">La<span style="color:var(--forest-4);">Lume</span></a>
+    <ul class="nav-links">
+      <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+      <li><a href="{{ pages['our-story'].url | default: '/pages/our-story' }}">Our Story</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-bag-btn" data-cart-open>
+        <span class="nav-bag-text">Bag</span>
+        <span class="cart-count{% if cart.item_count > 0 %} visible{% endif %}">{{ cart.item_count }}</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+{{ content_for_layout }}
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">La<span>Lume</span></div>
+        <p class="footer-brand-desc">Canadian clean skincare built on evidence, not hype. Clinical-grade actives at honest prices, formulated in British Columbia.</p>
+        <a href="mailto:Lalumecare@gmail.com" class="footer-email">✉ Lalumecare@gmail.com</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="{{ routes.all_products_collection_url }}">All Products</a></li>
+          <li><a href="{{ routes.all_products_collection_url }}?type=serum">Serums</a></li>
+          <li><a href="{{ routes.all_products_collection_url }}?type=eye-care">Eye Care</a></li>
+          <li><a href="{{ routes.all_products_collection_url }}?type=tools">Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="{{ pages['our-story'].url | default: '/pages/our-story' }}">Our Story</a></li>
+          <li><a href="mailto:Lalumecare@gmail.com">Lalumecare@gmail.com</a></li>
+          <li><a href="{{ pages['shipping-returns'].url | default: '/pages/shipping-returns' }}">Shipping & Returns</a></li>
+          <li><a href="{{ pages['privacy-policy'].url | default: '/pages/privacy-policy' }}">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Our Promises</div>
+        <ul class="footer-links">
+          <li><a href="#">🇨🇦 Made in Canada</a></li>
+          <li><a href="#">🌿 Zero greenwashing</a></li>
+          <li><a href="#">🛡️ 30-day guarantee</a></li>
+          <li><a href="#">🚚 Free shipping CA & US</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="{{ routes.root_url }}" class="nav-logo" style="color:rgba(255,255,255,0.4);">La<span style="color:var(--forest-4);">Lume</span></a>
+      <p class="footer-copy">© {{ 'now' | date: '%Y' }} LaLume Skincare · All rights reserved</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay"></div>
+<aside class="cart-sidebar">
+  <div class="cart-header">
+    <h2 class="cart-title">Your Cart</h2>
+    <button class="cart-close">✕</button>
+  </div>
+  <div class="cart-empty">
+    <div class="cart-empty-icon">🛍️</div>
+    <p class="cart-empty-text">Your cart is empty.</p>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><strong>{{ cart.total_price | money }} CAD</strong></div>
+    <a href="/checkout" class="btn-checkout">Checkout</a>
+  </div>
+</aside>
+
+<script src="{{ 'app.js' | asset_url }}" defer></script>
+
+<div class="email-popup-overlay" id="emailPopupOverlay"></div>
+<div class="email-popup" id="emailPopup" role="dialog" aria-modal="true">
+  <button class="email-popup-close" id="emailPopupClose" aria-label="Close">✕</button>
+  <div class="email-popup-badge">🇨🇦 LaLume Skincare</div>
+  <h3 class="email-popup-heading">Skincare science,<br>without the noise.</h3>
+  <p class="email-popup-desc">Ingredient breakdowns, new formula launches, and honest skincare education. No spam, no promotions.</p>
+  <form class="email-popup-form" action="{{ routes.root_url }}" method="post" id="emailPopupForm">
+    <input type="hidden" name="form_type" value="customer">
+    <input type="hidden" name="utf8" value="✓">
+    <input type="email" name="contact[email]" class="email-popup-input" placeholder="your@email.com" required>
+    <button type="submit" class="email-popup-btn">Subscribe</button>
+  </form>
+  <p class="email-popup-fine">Unsubscribe anytime.</p>
+</div>
+
+<script>
+(function(){
+  var KEY='lalume_popup_v1';
+  if(localStorage.getItem(KEY))return;
+  var overlay=document.getElementById('emailPopupOverlay');
+  var popup=document.getElementById('emailPopup');
+  var closeBtn=document.getElementById('emailPopupClose');
+  function open(){popup.classList.add('active');overlay.classList.add('active');}
+  function close(){popup.classList.remove('active');overlay.classList.remove('active');localStorage.setItem(KEY,'1');}
+  setTimeout(open,4000);
+  closeBtn.addEventListener('click',close);
+  overlay.addEventListener('click',close);
+  document.getElementById('emailPopupForm').addEventListener('submit',function(){setTimeout(close,300);});
+})();
+</script>
+</body>
+</html>
