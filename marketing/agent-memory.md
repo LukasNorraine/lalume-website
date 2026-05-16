@@ -6,10 +6,10 @@ Shared knowledge base. READ THIS FILE before acting. Write ONLY to your designat
 ## SYSTEM STATUS
 <!-- Any agent reads this first. Do not modify unless Lukas changes it. -->
 
-SHOPIFY_LIVE: false
+SHOPIFY_LIVE: true
 META_ADS_LIVE: false
-KLAVIYO_LIVE: false
-STORE_LAUNCH_DATE: TBD
+KLAVIYO_LIVE: true
+STORE_LAUNCH_DATE: active (Basic plan, www.lalume.ca, CAD)
 
 If SHOPIFY_LIVE is false: skip all Shopify MCP calls, note "store not live yet" in output.
 If META_ADS_LIVE is false: skip all Meta MCP calls, note "Meta ads not active yet" in output.
