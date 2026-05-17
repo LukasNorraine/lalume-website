@@ -7,7 +7,7 @@ Shared knowledge base. READ THIS FILE before acting. Write ONLY to your designat
 <!-- Any agent reads this first. Do not modify unless Lukas changes it. -->
 
 SHOPIFY_LIVE: true
-META_ADS_LIVE: false
+META_ADS_LIVE: true
 KLAVIYO_LIVE: true
 STORE_LAUNCH_DATE: active (Basic plan, www.lalume.ca, CAD)
 
