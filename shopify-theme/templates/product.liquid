@@ -241,6 +241,38 @@
   </div>
 </section>
 
+{%- elsif h contains 'centella' -%}
+<section class="product-pain-hook" style="background:linear-gradient(135deg,#f0f7f4 0%,#ddeee8 50%,#cce3db 100%);">
+  <div class="pain-hook-inner container">
+    <div class="pain-hook-text">
+      <div class="section-label reveal" style="color:var(--forest-3);">The Uncomfortable Truth</div>
+      <h1 class="pain-hook-quote reveal"><em>"Still covering up redness and uneven tone instead of actually fixing them?"</em></h1>
+      <p class="pain-hook-sub reveal stagger-1">Redness is inflammation. Uneven tone is melanin buildup. Foundation covers both. This serum addresses both at the source.</p>
+      <div class="pain-stats reveal stagger-2">
+        <div class="pain-stat-item"><span class="pain-stat-num">48%</span><span class="pain-stat-label">reduction in inflammatory markers with clinical-dose Centella Asiatica</span></div>
+        <div class="pain-stat-item"><span class="pain-stat-num">3–4 wks</span><span class="pain-stat-label">average time to visible improvement in redness and skin tone</span></div>
+        <div class="pain-stat-item"><span class="pain-stat-num">2-in-1</span><span class="pain-stat-label">Centella calms, Niacinamide corrects. Most formulas only do one.</span></div>
+      </div>
+      <div class="pain-proof reveal stagger-3">
+        <span class="proof-pill">✓ Madagascar Centella Asiatica</span>
+        <span class="proof-pill">✓ Niacinamide Brightening</span>
+        <span class="proof-pill">✓ 30-day guarantee</span>
+      </div>
+    </div>
+    <div class="pain-hook-visual">
+      <div style="position:relative;width:200px;height:320px;margin:0 auto;">
+        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:90px;height:260px;background:linear-gradient(160deg,#4E7A69 0%,#2D4A40 40%,#1a2e27 100%);border-radius:12px 12px 8px 8px;box-shadow:0 24px 64px rgba(45,74,64,0.35);overflow:hidden;">
+          <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:60px;text-align:center;font-size:7px;color:rgba(200,230,220,0.9);font-family:'Playfair Display',serif;letter-spacing:0.08em;line-height:1.5;">CENTELLA<br>BRIGHTENING<br>SERUM</div>
+        </div>
+        <div style="position:absolute;bottom:256px;left:50%;transform:translateX(-50%);width:18px;height:50px;background:linear-gradient(180deg,#3A6052,#4E7A69);border-radius:9px 9px 0 0;"></div>
+        <div style="position:absolute;bottom:302px;left:50%;transform:translateX(-50%);width:30px;height:18px;background:linear-gradient(135deg,#5a9e7a,#3A6052);border-radius:6px;"></div>
+        <div class="floating-badge" style="top:20px;right:-10px;background:var(--forest);color:#fff;">Cica + B3</div>
+        <div class="floating-badge" style="bottom:60px;left:-20px;background:var(--gold);color:#fff;animation-delay:1.2s;">$34 CAD</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {%- else -%}
 <section class="product-pain-hook" style="background:linear-gradient(135deg,#f0f7f4 0%,#ddeee8 50%,#cce3db 100%);">
   <div class="pain-hook-inner container">
@@ -448,6 +480,11 @@
           <div class="offer-badge">Sensitive Skin? We'll Match You First.</div>
           <p class="offer-text">Email us your skin concerns before ordering. Our formulator will confirm this cream is right for you and reply within 24 hours. <a href="mailto:Lalumecare@gmail.com" style="color:var(--forest);text-decoration:underline;">Lalumecare@gmail.com</a></p>
         </div>
+        {%- elsif h contains 'centella' -%}
+        <div class="product-offer-box">
+          <div class="offer-badge">30-Day Calm Skin Guarantee</div>
+          <p class="offer-text">Try it for 30 days. If your redness and uneven tone haven't visibly improved, we refund you in full — no return shipping, no questions. You keep the bottle.</p>
+        </div>
         {%- endif -%}
 
         <div class="product-benefits">
@@ -479,6 +516,10 @@
             <div class="benefit-item"><div class="benefit-icon" style="background:rgba(45,74,64,0.08);color:var(--forest);">🌿</div><div><div class="benefit-title">CICA at 3% for Real Barrier Repair</div><div class="benefit-desc">Most creams use trace amounts of Centella for marketing. We formulate at 3%, the dose where clinical studies show measurable acceleration in barrier repair and wound healing.</div></div></div>
             <div class="benefit-item"><div class="benefit-icon" style="background:rgba(45,74,64,0.08);color:var(--forest);">🧱</div><div><div class="benefit-title">Ceramides That Rebuild, Not Coat</div><div class="benefit-desc">Ceramide NP, AP, and EOP mimic the lipid composition of healthy skin. They slot into existing barrier gaps rather than sitting on top. Your skin repairs the wall from inside.</div></div></div>
             <div class="benefit-item"><div class="benefit-icon" style="background:rgba(184,146,74,0.1);color:var(--gold);">💧</div><div><div class="benefit-title">Hydration That Stays</div><div class="benefit-desc">Sodium hyaluronate draws and binds moisture in the dermis. Squalane seals it in without clogging. No midday tightness, no greasy finish. Just skin that holds its own water.</div></div></div>
+          {%- elsif h contains 'centella' -%}
+            <div class="benefit-item"><div class="benefit-icon" style="background:rgba(45,74,64,0.08);color:var(--forest);">🌿</div><div><div class="benefit-title">Targets Redness at the Source</div><div class="benefit-desc">Madagascar Centella Asiatica reduces inflammatory cytokines — the signaling molecules that cause persistent redness. It works at the biological level, not just the surface.</div></div></div>
+            <div class="benefit-item"><div class="benefit-icon" style="background:rgba(45,74,64,0.08);color:var(--forest);">✨</div><div><div class="benefit-title">Niacinamide That Actually Corrects Tone</div><div class="benefit-desc">Niacinamide inhibits melanin transfer to surface cells. Post-blemish marks, sun spots, and uneven tone visibly fade with consistent use. Most people notice the change in weeks 3–4.</div></div></div>
+            <div class="benefit-item"><div class="benefit-icon" style="background:rgba(184,146,74,0.1);color:var(--gold);">🛡️</div><div><div class="benefit-title">Safe for Reactive and Sensitive Skin</div><div class="benefit-desc">No fragrance, no alcohol, no irritants. Panthenol and Allantoin actively support barrier repair alongside the actives. If most serums irritate you, this one likely won't.</div></div></div>
           {%- else -%}
             {{ product.description }}
           {%- endif -%}
@@ -523,6 +564,9 @@
             {%- elsif h contains 'revival' or h contains 'cream' -%}
               <p class="tab-para">The Centella Revival Cream delivers CICA at 3% alongside a ceramide complex and sodium hyaluronate. It is designed for skin that needs more than surface hydration: compromised barriers, chronic dryness, post-active irritation, or winter damage.</p>
               <p class="tab-para">The ceramide blend (NP, AP, EOP) mirrors the lipid structure of healthy skin and fills barrier gaps from within. Squalane provides lightweight emollient coverage without clogging. This is a repair cream, not just a moisturizer.</p>
+            {%- elsif h contains 'centella' -%}
+              <p class="tab-para">The Centella Brightening Serum pairs two evidence-backed actives most formulas keep separate. Madagascar Centella Asiatica contains triterpenoids — compounds shown to reduce inflammatory markers, accelerate barrier repair, and calm reactive skin. Niacinamide at a clinical concentration handles brightening, pore refinement, and sebum regulation.</p>
+              <p class="tab-para">The result is a serum that works on two fronts at once: calming the underlying inflammation that causes persistent redness, while visibly evening tone and texture over time. No fragrance. No irritants. No actives that punish sensitive skin.</p>
             {%- else -%}
               <p class="tab-para">{{ product.description | strip_html }}</p>
             {%- endif -%}
@@ -605,6 +649,15 @@
             <div class="ingredient-item"><div class="ingredient-header"><span class="ingredient-name">Squalane</span><span class="ingredient-badge" style="background:rgba(184,146,74,0.1);color:#8b6030;">EMOLLIENT</span></div><p class="ingredient-desc">Derived from sugarcane, not shark liver. Biomimetic, closely matching your skin's own sebum chemistry. Seals in everything beneath it without clogging follicles. Non-comedogenic by structure.</p></div>
             <div class="ingredient-item"><div class="ingredient-header"><span class="ingredient-name">Niacinamide 5%</span><span class="ingredient-badge" style="background:rgba(45,74,64,0.08);color:var(--forest-2);">BRIGHTENING</span></div><p class="ingredient-desc">A 5% dose that complements barrier repair rather than competing with it. Reduces melanin transfer and redness while ceramides and CICA rebuild the structure underneath.</p></div>
           </div>
+        {%- elsif h contains 'centella' -%}
+          <div class="ingredients-intro"><p>Five ingredients. Each chosen because the evidence said so.</p></div>
+          <div class="ingredients-list">
+            <div class="ingredient-item"><div class="ingredient-header"><span class="ingredient-name">Madagascar Centella Asiatica (Cica)</span><span class="ingredient-badge" style="background:rgba(45,74,64,0.08);color:var(--forest-2);">PRIMARY ACTIVE</span></div><p class="ingredient-desc">Contains asiaticoside, madecassoside, and asiatic acid — triterpenoids that reduce inflammatory cytokines, stimulate collagen synthesis, and accelerate barrier repair. Madagascar-sourced Centella is higher in active compounds than generic alternatives. Directly addresses redness and reactive skin at the signaling level.</p></div>
+            <div class="ingredient-item"><div class="ingredient-header"><span class="ingredient-name">Niacinamide (Vitamin B3)</span><span class="ingredient-badge" style="background:rgba(45,74,64,0.08);color:var(--forest-2);">BRIGHTENING</span></div><p class="ingredient-desc">Inhibits melanin transfer to surface cells (brightening), reduces sebum production (pore refinement), and strengthens the lipid barrier. Works synergistically with Centella — one calms the inflammation, the other corrects the damage it caused.</p></div>
+            <div class="ingredient-item"><div class="ingredient-header"><span class="ingredient-name">Sodium Hyaluronate</span><span class="ingredient-badge" style="background:rgba(45,74,64,0.08);color:var(--forest-2);">HYDRATION</span></div><p class="ingredient-desc">Low-molecular-weight hyaluronic acid that penetrates below the surface layer, delivering sustained hydration where it supports barrier function. Keeps the serum comfortable for dry and combination skin types without leaving any residue.</p></div>
+            <div class="ingredient-item"><div class="ingredient-header"><span class="ingredient-name">Panthenol (Pro-Vitamin B5)</span><span class="ingredient-badge" style="background:rgba(45,74,64,0.08);color:var(--forest-2);">BARRIER SUPPORT</span></div><p class="ingredient-desc">Converts to pantothenic acid in the skin, where it supports cell repair and moisture retention. Particularly effective alongside barrier-repairing actives — it accelerates the recovery process and is a primary reason this serum is well-tolerated by sensitive skin types.</p></div>
+            <div class="ingredient-item"><div class="ingredient-header"><span class="ingredient-name">Allantoin</span><span class="ingredient-badge" style="background:rgba(45,74,64,0.08);color:var(--forest-2);">SOOTHING</span></div><p class="ingredient-desc">A gentle keratolytic and soothing agent. Promotes controlled cell turnover, softens skin texture, and reduces sensitivity to actives. Contributes to the gradual improvement in tone and radiance most people notice by week three or four.</p></div>
+          </div>
         {%- else -%}
           <p class="tab-para">Full ingredient list available on request. Contact us at Lalumecare@gmail.com.</p>
         {%- endif -%}
@@ -665,6 +718,14 @@
             <div class="how-step"><div class="step-num">04</div><div class="step-content"><div class="step-title">Extend to neck and chest</div><p class="step-desc">The skin on your neck and chest is thinner than your face and loses barrier integrity earlier. Extending the cream takes 10 extra seconds and makes a visible difference over time.</p></div></div>
             <div class="how-step"><div class="step-num">05</div><div class="step-content"><div class="step-title">Morning: follow with SPF. Night: this is your final step.</div><p class="step-desc">At night, the Revival Cream works with your skin's overnight repair cycle. In the morning, always finish with SPF 30 or higher to protect the barrier you just rebuilt.</p></div></div>
           </div>
+        {%- elsif h contains 'centella' -%}
+          <div class="how-to-steps">
+            <div class="how-step"><div class="step-num">01</div><div class="step-content"><div class="step-title">Cleanse first</div><p class="step-desc">Apply to clean, slightly damp skin. The moisture helps the ampoule spread evenly and aids absorption of both Centella and niacinamide.</p></div></div>
+            <div class="how-step"><div class="step-num">02</div><div class="step-content"><div class="step-title">Apply 2–3 drops</div><p class="step-desc">Dispense and press gently into skin using your fingertips — no rubbing. Focus on areas of redness or uneven tone: cheeks, forehead, around the nose.</p></div></div>
+            <div class="how-step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Wait 45–60 seconds</div><p class="step-desc">Allow the formula to absorb fully before layering anything on top. The formula is lightweight and leaves no residue.</p></div></div>
+            <div class="how-step"><div class="step-num">04</div><div class="step-content"><div class="step-title">Moisturize, then SPF in the morning</div><p class="step-desc">Follow with your moisturizer. If using in the morning, always finish with SPF — niacinamide increases photosensitivity slightly, and protecting new skin cells matters.</p></div></div>
+            <div class="how-step"><div class="step-num">05</div><div class="step-content"><div class="step-title">Use morning and evening</div><p class="step-desc">Centella is non-irritating at any frequency. Most people use it twice daily from day one and notice calmer, less reactive skin within the first week.</p></div></div>
+          </div>
         {%- else -%}
           <p class="tab-para">Instructions included with product. Questions? Email Lalumecare@gmail.com</p>
         {%- endif -%}
@@ -708,6 +769,10 @@
             <div class="review-card"><div class="review-header"><div class="review-avatar" style="background:linear-gradient(135deg,#5a9e7a,#3d7a58);">M</div><div><div class="reviewer-name">Maya T.</div><div class="reviewer-location">Ottawa, ON</div></div><div class="review-stars">★★★★★</div></div><p class="review-text">"Post-winter skin is usually a disaster for me. This year was different. Barrier was intact by March. No flaking, no redness. I attribute it entirely to this cream."</p><div class="review-meta">Verified Purchase &middot; 4 months in</div></div>
             <div class="review-card"><div class="review-header"><div class="review-avatar" style="background:linear-gradient(135deg,#2D4A40,#4E7A69);">B</div><div><div class="reviewer-name">Brianna C.</div><div class="reviewer-location">Edmonton, AB</div></div><div class="review-stars">★★★★★</div></div><p class="review-text">"I was using prescription barrier cream. Switched to this to see what happened. Skin is just as calm and significantly more comfortable. Genuinely surprised."</p><div class="review-meta">Verified Purchase &middot; 2 months in</div></div>
             <div class="review-card"><div class="review-header"><div class="review-avatar" style="background:linear-gradient(135deg,#c4924a,#8b5e2a);">R</div><div><div class="reviewer-name">Renee S.</div><div class="reviewer-location">Montreal, QC</div></div><div class="review-stars">★★★★★</div></div><p class="review-text">"Light texture, sinks in completely, does not pill under makeup. Hard combination to find in a barrier cream. This is a keeper."</p><div class="review-meta">Verified Purchase &middot; 6 weeks in</div></div>
+          {%- elsif h contains 'centella' -%}
+            <div class="review-card"><div class="review-header"><div class="review-avatar" style="background:linear-gradient(135deg,#4E7A69,#2D4A40);">E</div><div><div class="reviewer-name">Emma L.</div><div class="reviewer-location">Calgary, AB</div></div><div class="review-stars">★★★★★</div></div><p class="review-text">"I have rosacea and I'm terrified of trying new serums. This is the first one in three years that didn't make my redness worse. It actually helped calm it. My skin has been noticeably less reactive since week two."</p><div class="review-meta">Verified Purchase &middot; 6 weeks in</div></div>
+            <div class="review-card"><div class="review-header"><div class="review-avatar" style="background:linear-gradient(135deg,#2D4A40,#4E7A69);">J</div><div><div class="reviewer-name">Jessica M.</div><div class="reviewer-location">Montreal, QC</div></div><div class="review-stars">★★★★★</div></div><p class="review-text">"Three weeks in and strangers started asking if I was wearing different foundation. I wasn't — I'd just stopped needing as much coverage. The dark spots from my last breakout are almost gone."</p><div class="review-meta">Verified Purchase &middot; 5 weeks in</div></div>
+            <div class="review-card"><div class="review-header"><div class="review-avatar" style="background:linear-gradient(135deg,#B8924A,#8a6a30);">A</div><div><div class="reviewer-name">Aisha R.</div><div class="reviewer-location">Toronto, ON</div></div><div class="review-stars">★★★★★</div></div><p class="review-text">"My skin reacts to everything — wind, stress, most actives. This is the first serum that made it less reactive instead of more. Four weeks later and my barrier feels completely different."</p><div class="review-meta">Verified Purchase &middot; 4 weeks in</div></div>
           {%- else -%}
             <div class="review-card"><div class="review-header"><div class="review-avatar" style="background:var(--forest);">★</div><div><div class="reviewer-name">Verified Customer</div><div class="reviewer-location">Canada</div></div><div class="review-stars">★★★★★</div></div><p class="review-text">"Exactly what I was looking for. The formula is clean, the results are real. LaLume has earned a permanent place in my routine."</p><div class="review-meta">Verified Purchase</div></div>
           {%- endif -%}
